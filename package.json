@@ -1,0 +1,15 @@
+{
+  "name": "jet-komponents",
+  "version": "0.0.1",
+  "devDependencies": {},
+  "dependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^5.8.38",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^5.1.2",
+    "gulp-requirejs-bundler": "^0.1.1",
+    "object-assign": "^4.0.1",
+    "requirejs": "^2.2.0"
+  }
+}

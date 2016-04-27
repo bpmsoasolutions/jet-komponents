@@ -1,0 +1,26 @@
+{
+  "name": "jet-komponents",
+  "version": "0.0.1",
+  "authors": [
+    "Daniel Biedma Ramos <daniel.biedma@bpmsoasolutions.com>"
+  ],
+  "description": "An easy way to use jet components in knockout",
+  "keywords": [
+    "oracle",
+    "jet",
+    "knockout",
+    "components"
+  ],
+  "license": "MIT",
+  "homepage": "bpmsoasolutions.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "oraclejet": "^2.0.1"
+  }
+}

@@ -1,0 +1,41 @@
+export const ojHtml = (name) => {
+    let child = '';
+    if (name !== 'input'){
+        child = `<div data-bind="with: $parent"> \
+            <!-- ko template: { nodes: $componentTemplateNodes } --><!-- /ko --> \
+            </div>`;
+    }
+    return `<${name} data-bind="ojComponent: ojcomponent" > ${child} </${name}>`;
+};
+
+export const camelToDash = (str) =>
+    str.replace(/\W+/g, '-')
+        .replace(/([a-z\d])([A-Z])/g, '$1-$2')
+        .replace(/([A-Z])/g, (x, chr) => chr.toLowerCase());
+
+export const dashToCamel = (str) =>
+    str.replace(/\W+(.)/g, (x, chr) => chr.toUpperCase() );
+
+export const generateShortcutsComponents = (shortcutsComponents, components) => {
+    Object.keys(shortcutsComponents).map((templateKey) => {
+        shortcutsComponents[templateKey].map((componentKey) => {
+            let componentTag = camelToDash(componentKey);
+            components[componentTag] = {
+                component: componentKey,
+                template: ojHtml(templateKey)
+            };
+        });
+    });
+};
+
+export const generateCustomComponents = (customComponents, components) => {
+    Object.keys(customComponents).map((componentKey) => {
+        let componentConfig = customComponents[componentKey];
+        let componentTag = camelToDash(componentKey);
+        components[componentTag] = {
+            component: (componentConfig.component) ? componentConfig.component : componentKey,
+            template: componentConfig.template,
+            defaults: (componentConfig.defaults) ? componentConfig.defaults : {}
+        };
+    });
+};

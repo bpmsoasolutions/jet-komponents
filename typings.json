@@ -1,0 +1,6 @@
+{
+  "ambientDependencies": {
+    "knockout": "registry:dt/knockout#3.2.0+20160215162030",
+    "require": "registry:dt/require#2.1.20+20160316155526"
+  }
+}

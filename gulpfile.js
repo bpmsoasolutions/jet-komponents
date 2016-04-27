@@ -66,7 +66,7 @@ gulp.task('babel', function() {
 });
 
 gulp.task('watch', function() {
-    return gulp.watch('./src/**/*.js', ['babel', 'rjs', 'deploy-locally']);
+    gulp.watch(['./src/**/*.js', './build/**/*.js'], ['babel', 'rjs', 'deploy-locally']);
 });
 
 gulp.task('deploy-locally', function () {

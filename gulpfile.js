@@ -33,22 +33,26 @@ function babelTranspile(pathname, callback) {
 }
 
 function requireTask(name, file) {
-    gulp.task(name, function() {
+    return gulp.task(name, ['babel'], function(cb) {
         var config = objectAssign({}, require(file), { baseUrl: 'temp' });
-        return rjs(config)
+        rjs(config)
             .pipe(gulp.dest('./dist/'));
+        cb()
     });
-    return name;
 }
 
-var tasks = [
-    requireTask('rjs', './build/cfg.js'),
-    requireTask('rjs-min', './build/cfg-min.js'),
-    requireTask('rjs-full', './build/cfg-full.js')
-];
 
-// Pushes all the source files through Babel for transpilation
-gulp.task('babel', function() {
+
+
+gulp.task('clean', function(cb) {
+    del('./dist/**/*')
+        .then(del('./temp/**/*'))
+        .then(function () {
+            cb();
+        });
+});
+
+gulp.task('babel', ['clean'], function() {
     return gulp.src('./src/**')
         .pipe(es.map(function(data, cb) {
             if (!data.isNull()) {
@@ -65,20 +69,29 @@ gulp.task('babel', function() {
         .pipe(gulp.dest('./temp'));
 });
 
+requireTask('rjs', './build/cfg.js');
+requireTask('rjs-min', './build/cfg-min.js');
+requireTask('rjs-full', './build/cfg-full.js');
+
 gulp.task('watch', function() {
-    gulp.watch(['./src/**/*.js', './build/**/*.js'], ['babel', 'rjs', 'deploy-locally']);
+    gulp.watch(['./src/**/*.js', './build/**/*.js'], ['deploy-locally']);
 });
 
-gulp.task('deploy-locally', function () {
+gulp.task('deploy-locally', ['rjs'], function () {
     del.sync(local_project + '/*', {force:true});
     return gulp.src('./dist/**/*')
         .pipe(gulp.dest(local_project));
 });
 
-gulp.task('clean', function() {
-    del.sync(['./dist/**/*', './temp/**/*']);
+
+
+gulp.task('default', ['deploy-locally', 'watch'], function (cb) {
+    cb();
+    console.log('\nFinished "dist" synced.\n');
 });
 
-gulp.task('default', ['babel', 'rjs', 'deploy-locally', 'watch']);
 gulp.task('build-dep', ['clean', 'rjs', 'rjs-min', 'rjs-full', 'deploy-locally']);
-gulp.task('build', ['clean', 'rjs', 'rjs-min', 'rjs-full']);
+gulp.task('build', ['rjs', 'rjs-min', 'rjs-full'], function (cb) {
+    cb();
+    console.log('\nFinished build "dist" synced.\n');
+});

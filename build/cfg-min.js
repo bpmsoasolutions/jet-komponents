@@ -13,15 +13,12 @@ module.exports = {
         'ojtranslations': '../bower_components/oraclejet/dist/js/libs/oj/resources',
         'knockout-amd-helpers': '../bower_components/knockout/dist/',
         'text': '../bower_components/text/text',
-        'signals': '../bower_components/js-signals/dist/signals'
+        'signals': '../bower_components/js-signals/dist/signals',
+        'requirejs': '../node_modules/requirejs/require'
     },
-    out: 'dist/jetKomponents.min.js',
-    include: ['almond', 'jetKomponents'],
+    out: 'jet-komponents.min.js',
+    include: ['requirejs', 'jet-komponents'],
     optimize: 'uglify2',
     generateSourceMaps: true,
-    wrap: {
-        startFile: 'src/_start.js',
-        endFile: 'src/_end.js'
-    },
     preserveLicenseComments: false
 };

@@ -13,15 +13,12 @@ module.exports = {
         'ojtranslations': '../bower_components/oraclejet/dist/js/libs/oj/resources',
         'knockout-amd-helpers': '../bower_components/knockout/dist/',
         'text': '../bower_components/text/text',
-        'signals': '../bower_components/js-signals/dist/signals'
+        'signals': '../bower_components/js-signals/dist/signals',
+        'requirejs': '../node_modules/requirejs/require'
     },
-    out: 'dist/jetKomponents.full.min.js',
-    include: ['almond', 'ojs/ojcore', 'knockout', 'ojs/ojknockout', 'ojs/ojrouter', 'ojs/ojmodule', 'ojs/ojoffcanvas', 'ojs/ojnavigationlist', 'ojs/ojbutton', 'ojs/ojchart', 'ojs/ojinputtext', 'ojs/ojslider', 'ojs/ojselectcombobox', 'ojs/ojswitch', 'ojs/ojradioset','ojs/ojcheckboxset', 'ojs/ojgauge','ojs/ojmenu','ojs/ojdiagram', 'ojs/ojlegend','ojs/ojnbox', 'ojs/ojpictochart', 'jetKomponents'],
+    out: 'jet-komponents.full.min.js',
+    include: ['requirejs', 'ojs/ojcore', 'knockout', 'ojs/ojknockout', 'ojs/ojrouter', 'ojs/ojmodule', 'ojs/ojoffcanvas', 'ojs/ojnavigationlist', 'ojs/ojbutton', 'ojs/ojchart', 'ojs/ojinputtext', 'ojs/ojslider', 'ojs/ojselectcombobox', 'ojs/ojswitch', 'ojs/ojradioset','ojs/ojcheckboxset', 'ojs/ojgauge','ojs/ojmenu','ojs/ojdiagram', 'ojs/ojlegend','ojs/ojnbox', 'ojs/ojpictochart', 'jet-komponents'],
     optimize: 'uglify2',
-    generateSourceMaps: false,
-    wrap: {
-        startFile: 'src/_start.js',
-        endFile: 'src/_end.js'
-    },
-    preserveLicenseComments: false
+    preserveLicenseComments: false,
+    generateSourceMaps: false
 };

@@ -18,7 +18,6 @@ module.exports = {
     },
     out: 'jet-komponents.min.js',
     include: ['requirejs', 'jet-komponents'],
-    optimize: 'uglify2',
     generateSourceMaps: true,
     preserveLicenseComments: false
 };

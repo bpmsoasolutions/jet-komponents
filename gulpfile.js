@@ -90,8 +90,12 @@ gulp.task('default', ['deploy-locally', 'watch'], function (cb) {
     console.log('\nFinished "dist" synced.\n');
 });
 
-gulp.task('build-dep', ['clean', 'rjs', 'rjs-min', 'rjs-full', 'deploy-locally']);
-gulp.task('build', ['rjs', 'rjs-min', 'rjs-full'], function (cb) {
+gulp.task('build:deploy', ['clean', 'rjs', 'rjs-min', 'rjs-full', 'deploy-locally']);
+gulp.task('build:dev', ['rjs'], function (cb) {
+    cb();
+    console.log('\nFinished build "dist" synced.\n');
+});
+gulp.task('build:full', ['rjs', 'rjs-min', 'rjs-full'], function (cb) {
     cb();
     console.log('\nFinished build "dist" synced.\n');
 });

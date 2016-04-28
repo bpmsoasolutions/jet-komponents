@@ -6,7 +6,7 @@ let shortcutsComponents = {
     'input': ['ojInputText', 'ojInputPassword', 'ojInputNumber', 'ojInputDateTime',  'ojSlider', 'ojCombobox', 'ojInputSearch', 'ojSwitch'],
     'textarea': ['ojTextArea'],
     'div':[ 'ojSelect', 'ojCheckboxset', 'ojRadioSet','ojToolbar', 'ojLedGauge', 'ojDiagram','ojLegend', 'ojNBox', 'ojPictoChart', 'ojButtonset'],
-    'ul': ['ojMenu']
+    'ul': ['ojMenu', 'ojListView']
 };
 // Custom components
 let customComponents = {

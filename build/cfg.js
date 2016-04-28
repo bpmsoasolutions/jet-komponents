@@ -19,7 +19,6 @@ module.exports = {
     out: 'jet-komponents.js',
     include: ['requirejs','jet-komponents'],
     bundles: false,
-    optimize: 'none',
     preserveLicenseComments: false,
     generateSourceMaps: false
 };

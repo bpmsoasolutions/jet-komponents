@@ -28,7 +28,6 @@ let customComponents = {
                 template: ''
             }
         }
-
     },
     'ojChart':{
         template: utils.ojHtml('div'),

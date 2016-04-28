@@ -9,7 +9,8 @@ var fs = require('fs'),
     babelCore = require('babel-core'),
     babel = require('gulp-babel'),
     objectAssign = require('object-assign'),
-    rjs = require('gulp-requirejs-bundler');
+    rjs = require('gulp-requirejs-bundler')
+    uglify = require('gulp-uglify');
 
 var local_project = '/Users/dbr/htdocs/bss/oracle-jet/Frontend/js/libs/jet-komponents/dist';
 
@@ -72,21 +73,33 @@ gulp.task('babel', ['clean'], function() {
         .pipe(gulp.dest('./temp'));
 });
 
-requireTask('rjs', './build/cfg.js');
-requireTask('rjs-min', './build/cfg-min.js');
-
-gulp.task('watch', function() {
-    gulp.watch(['./src/**/*.js', './build/**/*.js'], ['deploy-locally']);
-});
-
 gulp.task('deploy-locally', ['rjs'], function () {
     del.sync(local_project + '/*', {force:true});
     return gulp.src('./dist/**/*')
         .pipe(gulp.dest(local_project));
 });
 
+
+gulp.task('rjs', ['babel'], function() {
+    var config = objectAssign({}, require('./build/cfg.js'), { baseUrl: 'temp' });
+    return rjs(config)
+        .pipe(gulp.dest('./dist/'));
+});
+
+gulp.task('rjs-min', ['babel'], function() {
+    var config = objectAssign({}, require('./build/cfg-min.js'), { baseUrl: 'temp' });
+    return rjs(config)
+        .pipe(uglify({ preserveComments: 'some' }))
+        .pipe(gulp.dest('./dist/'));
+});
+
+gulp.task('watch', function() {
+    gulp.watch(['./src/**/*.js', './build/**/*.js'], ['deploy-locally']);
+});
+
+
 gulp.task('clean', ['clean:dist', 'clean:temp']);
 gulp.task('default', ['deploy-locally', 'watch']);
 gulp.task('build:deploy', ['clean', 'rjs', 'rjs-min', 'rjs-full', 'deploy-locally']);
 gulp.task('build:dev', ['rjs']);
-gulp.task('build:full', ['clean', 'rjs', 'rjs-min']);
+gulp.task('build:full', ['rjs', 'rjs-min']);

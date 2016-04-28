@@ -15,7 +15,7 @@ module.exports = {
         'signals': '../bower_components/js-signals/dist/signals',
         'requirejs': '../node_modules/requirejs/require'
     },
-    out: 'jet-komponents.js',
+    out: 'jet-komponents.min.js',
     include: ['requirejs','jet-komponents'],
     preserveLicenseComments: false,
     generateSourceMaps: false

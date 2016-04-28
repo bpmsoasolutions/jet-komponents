@@ -1,6 +1,11 @@
 {
   "name": "jet-komponents",
-  "version": "0.0.1",
+  "version": "0.5.0",
+  "description": "Jet components used in knockout way",
+  "main": "dist/jet-komponents.min.js",
+  "scripts": {},
+  "author": "Daniel Biedma Ramos <daniel.biedma@bpmsoasolutions.com>",
+  "license": "MIT",
   "devDependencies": {},
   "dependencies": {
     "babel": "^6.5.2",
@@ -9,6 +14,7 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^5.1.2",
     "gulp-requirejs-bundler": "^0.1.1",
+    "gulp-uglify": "^1.5.3",
     "object-assign": "^4.0.1",
     "requirejs": "^2.2.0"
   }

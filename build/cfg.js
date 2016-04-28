@@ -1,7 +1,6 @@
 module.exports = {
     baseUrl: 'src',
     paths: {
-        'almond': '../bower_components/almond/almond',
         'knockout': '../bower_components/knockout/dist/knockout.debug',
         'jquery': '../bower_components/jquery/dist/jquery',
         'jqueryui-amd': '../bower_components/jquery-ui/ui',
@@ -18,7 +17,6 @@ module.exports = {
     },
     out: 'jet-komponents.js',
     include: ['requirejs','jet-komponents'],
-    bundles: false,
     preserveLicenseComments: false,
     generateSourceMaps: false
 };

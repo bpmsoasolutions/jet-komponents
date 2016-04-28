@@ -41,12 +41,15 @@ function requireTask(name, file) {
     });
 }
 
-
-
-
-gulp.task('clean', function(cb) {
+gulp.task('clean:dist', function(cb) {
     del('./dist/**/*')
-        .then(del('./temp/**/*'))
+        .then(function () {
+            cb();
+        });
+});
+
+gulp.task('clean:temp', function(cb) {
+    del('./temp/**/*')
         .then(function () {
             cb();
         });
@@ -71,7 +74,6 @@ gulp.task('babel', ['clean'], function() {
 
 requireTask('rjs', './build/cfg.js');
 requireTask('rjs-min', './build/cfg-min.js');
-requireTask('rjs-full', './build/cfg-full.js');
 
 gulp.task('watch', function() {
     gulp.watch(['./src/**/*.js', './build/**/*.js'], ['deploy-locally']);
@@ -83,19 +85,8 @@ gulp.task('deploy-locally', ['rjs'], function () {
         .pipe(gulp.dest(local_project));
 });
 
-
-
-gulp.task('default', ['deploy-locally', 'watch'], function (cb) {
-    cb();
-    console.log('\nFinished "dist" synced.\n');
-});
-
+gulp.task('clean', ['clean:dist', 'clean:temp']);
+gulp.task('default', ['deploy-locally', 'watch']);
 gulp.task('build:deploy', ['clean', 'rjs', 'rjs-min', 'rjs-full', 'deploy-locally']);
-gulp.task('build:dev', ['rjs'], function (cb) {
-    cb();
-    console.log('\nFinished build "dist" synced.\n');
-});
-gulp.task('build:full', ['rjs', 'rjs-min', 'rjs-full'], function (cb) {
-    cb();
-    console.log('\nFinished build "dist" synced.\n');
-});
+gulp.task('build:dev', ['rjs']);
+gulp.task('build:full', ['clean', 'rjs', 'rjs-min']);

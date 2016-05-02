@@ -6,6 +6,8 @@
   "scripts": {},
   "author": "Daniel Biedma Ramos <daniel.biedma@bpmsoasolutions.com>",
   "license": "MIT",
+  "licenseUrl": "http://github.com/bpmsoasolutions/jet-komponents/LICENSE",
+  "homepage": "http://github.com/bpmsoasolutions/jet-komponents",
   "devDependencies": {},
   "dependencies": {
     "babel": "^6.5.2",
@@ -13,6 +15,7 @@
     "del": "^2.2.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^5.1.2",
+    "gulp-header": "^1.7.1",
     "gulp-requirejs-bundler": "^0.1.1",
     "gulp-uglify": "^1.5.3",
     "object-assign": "^4.0.1",

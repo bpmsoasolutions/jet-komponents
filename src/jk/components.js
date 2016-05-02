@@ -11,7 +11,11 @@ let shortcutsComponents = {
 // Custom components
 let customComponents = {
     'ojDialog':{
-        template: '<div data-bind="ojComponent: ojcomponent, attr: {id:id, title:title}"><div data-bind="with: $parent"><!-- ko template: { nodes: $componentTemplateNodes } --><!-- /ko --></div></div>'
+        template: `<div data-bind="ojComponent: ojcomponent, attr: {id:id, title:title}">\
+        <!-- ko with:$parent -->\
+        <!-- ko template: { nodes: $componentTemplateNodes } --><!-- /ko -->\
+        <!-- /ko -->\
+        </div>`
     },
     'ojButton':{
         template: '<button data-bind="click: click, ojComponent: ojcomponent"></button>'

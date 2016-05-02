@@ -1,6 +1,59 @@
 # jet-komponents
 Oracle-jet components used in knockout way.
 
+## What is
+
+This is an utility to create the jet components in a modern philosophy that knockout > 3.2 have out of the box. Is the web components inspired idea.
+
+## Why
+
+The jet components right now uses too much verbose way to define, for example a button have to be declared like:
+
+```html
+<button data-bind="
+    click: $parent.toggleDrawer, 
+    ojComponent: {
+        component:'ojButton', 
+        label: 'Application Navigation'
+    }">
+</button>
+```
+
+The ```ojComponent: {/*…*/}``` part is fixed for all components in jet and we are trying to create a more better way to do that:
+
+```html
+<oj-button params="
+    click: pauseResumeInterval,
+    label: 'Application Navigation'">
+</oj-button>
+```
+
+Our solution are trying to simplify the use of that components.
+
+## What is for
+
+The actual components make a little bit dirty the html of your application, if you have a really big application in jet you feel a little bit lost when you read the html. The idea comes from react, in react the button will be defined like this:
+
+```html
+<oj-button
+    click="pauseResumeInterval" 
+	label="Application Navigation">
+</oj-button>
+```
+
+Saving the distancies, because react use the jsx syntax, that is really comfortable to write components, we want to arrive to a something similar.
+
+```html
+<oj-button params="
+	click: pauseResumeInterval,
+    label: 'Application Navigation'">
+</oj-button>
+```
+
+## Benefits
+
+The main benefits are that your jet components are compact (less code), these increase the legibility of the code
+
 ## Getting started
 Install the module with: `bower install jet-komponents`
 
@@ -32,13 +85,11 @@ Now you can use the components in this way.
 ```html
 <oj-button params="
     click: pauseResumeInterval,
-    component:'ojButton', 
-    label: 'Application Navigation'
-    ">
+    label: 'Application Navigation'">
 </oj-button>
 ```
 
-Instead of this:
+Instead of that:
 
 ```html
 <button data-bind="
@@ -59,7 +110,18 @@ This first version of the library borns to cover our needs, to have a better exp
 ['ojInputText', 'ojInputPassword', 'ojInputNumber', 'ojInputDateTime',  'ojSlider', 'ojCombobox', 'ojInputSearch', 'ojSwitch', 'ojTextArea', 'ojSelect', 'ojCheckboxset', 'ojRadioSet','ojToolbar', 'ojLedGauge', 'ojDiagram','ojLegend', 'ojNBox', 'ojPictoChart', 'ojButtonset','ojMenu', 'ojListView', 'ojDialog', 'ojButton', 'ojNavigationList', 'ojChart']
 ```
 
+As you can check, right now we only eliminate ```ojComponent: { component: NAME, /* … */ }``` dependency, so every parameter you pass will be injected inside that, the only field that are not infected are the click field. We are working to provide a better way.
+
 **Remember that you must import the component you want in your requireJs, this is only a wrapper over Jet.**
+
+## Methods
+
+The library exports 4 methods:
+
+- Object **components**:  Contains all basic configuration for the components.
+- Function **register(ko)**:  You pass a knockout context and register inside that, the components inside the previous field.
+
+We have internally a function that returns the class for every component in the [knockout way](http://knockoutjs.com/documentation/component-overview.html).
 
 ## Examples
 
@@ -71,7 +133,7 @@ This first version of the library borns to cover our needs, to have a better exp
     value: selectedFields,
     options: listOfFields,
     rootAttributes: {
-    id: 'multiselect',
+    	id: 'multiselect',
         style:'max-width:100%'
     }">
 </oj-select>
@@ -158,7 +220,7 @@ This first version of the library borns to cover our needs, to have a better exp
 # Release History
 
 ## (0.5.0)
-- First release i will update soon, stay tuned!
+- First release we will update soon, stay tuned!
 - Components:
   - ojInputText
   - ojInputPassword
@@ -191,5 +253,5 @@ This first version of the library borns to cover our needs, to have a better exp
 
 ## License
 
-Licensed under the MIT license. 2016 bpmsoasolutions.com
+Licensed under the MIT license. 2016 [bpmsoasolutions.com](http://bpmsoasolutions.com)
 

@@ -9,10 +9,30 @@ var fs = require('fs'),
     babelCore = require('babel-core'),
     babel = require('gulp-babel'),
     objectAssign = require('object-assign'),
-    rjs = require('gulp-requirejs-bundler')
-    uglify = require('gulp-uglify');
+    rjs = require('gulp-requirejs-bundler'),
+    uglify = require('gulp-uglify'),
+    header = require('gulp-header'),
+
+    packageJson = require('./package.json');
 
 var local_project = '/Users/dbr/htdocs/bss/oracle-jet/Frontend/js/libs/jet-komponents/dist';
+
+var banner = ["/**",
+    " *    _     _      _                                 _",
+    " *   |_|___| |_   | |_ ___ _____ ___ ___ ___ ___ ___| |_ ___",
+    " *   | | -_|  _|  | '_| . |     | . | . |   | -_|   |  _|_ -|",
+    " *  _| |___|_|    |_,_|___|_|_|_|  _|___|_|_|___|_|_|_| |___|",
+    " * |___|                        |_|",
+    " *",
+    " * <%= pkg.name %> - <%= pkg.description %>",
+    " * @version v<%= pkg.version %>",
+    " * @link <%= pkg.homepage %>",
+    " * @license <%= pkg.license %>, <%= pkg.licenseUrl %>",
+    " *",
+    " * Using RequireJS 2.2.0 Copyright jQuery Foundation and other contributors.",
+    " * Released under MIT license, http://github.com/requirejs/requirejs/LICENSE",
+    " */",
+    ""].join("\n");
 
 var transpilationConfig = {
         root: 'src',
@@ -83,13 +103,15 @@ gulp.task('deploy-locally', ['rjs'], function () {
 gulp.task('rjs', ['babel'], function() {
     var config = objectAssign({}, require('./build/cfg.js'), { baseUrl: 'temp' });
     return rjs(config)
+        .pipe(header(banner, { pkg : packageJson } ))
         .pipe(gulp.dest('./dist/'));
 });
 
 gulp.task('rjs-min', ['babel'], function() {
     var config = objectAssign({}, require('./build/cfg-min.js'), { baseUrl: 'temp' });
     return rjs(config)
-        .pipe(uglify({ preserveComments: 'some' }))
+        .pipe(uglify({ preserveComments: 'none' }))
+        .pipe(header(banner, { pkg : packageJson } ))
         .pipe(gulp.dest('./dist/'));
 });
 

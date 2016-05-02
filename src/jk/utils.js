@@ -1,9 +1,9 @@
 export const ojHtml = (name) => {
     let child = '';
     if (name !== 'input'){
-        child = `<div data-bind="with: $parent"> \
-            <!-- ko template: { nodes: $componentTemplateNodes } --><!-- /ko --> \
-            </div>`;
+        child = `<!-- ko with:$parent -->\
+        <!-- ko template: { nodes: $componentTemplateNodes } --><!-- /ko -->\
+        <!-- /ko -->`;
     }
     return `<${name} data-bind="ojComponent: ojcomponent" > ${child} </${name}>`;
 };

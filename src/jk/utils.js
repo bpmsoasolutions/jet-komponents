@@ -1,13 +1,3 @@
-export const ojHtml = (name) => {
-    let child = '';
-    if (name !== 'input'){
-        child = `<!-- ko with:$parent -->\
-        <!-- ko template: { nodes: $componentTemplateNodes } --><!-- /ko -->\
-        <!-- /ko -->`;
-    }
-    return `<${name} data-bind="ojComponent: ojcomponent" > ${child} </${name}>`;
-};
-
 export const camelToDash = (str) =>
     str.replace(/\W+/g, '-')
         .replace(/([a-z\d])([A-Z])/g, '$1-$2')
@@ -22,7 +12,7 @@ export const generateShortcutsComponents = (shortcutsComponents, components) => 
             let componentTag = camelToDash(componentKey);
             components[componentTag] = {
                 component: componentKey,
-                template: ojHtml(templateKey)
+                template: templateKey
             };
         });
     });

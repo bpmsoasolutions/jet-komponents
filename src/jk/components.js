@@ -5,23 +5,14 @@ let components = {};
 let shortcutsComponents = {
     'input': ['ojInputText', 'ojInputPassword', 'ojInputNumber', 'ojInputDateTime',  'ojSlider', 'ojCombobox', 'ojInputSearch', 'ojSwitch'],
     'textarea': ['ojTextArea'],
-    'div':[ 'ojSelect', 'ojCheckboxset', 'ojRadioSet','ojToolbar', 'ojLedGauge', 'ojDiagram','ojLegend', 'ojNBox', 'ojPictoChart', 'ojButtonset'],
-    'ul': ['ojMenu', 'ojListView']
+    'div':['ojDialog', 'ojSelect', 'ojCheckboxset', 'ojRadioSet','ojToolbar', 'ojLedGauge', 'ojDiagram','ojLegend', 'ojNBox', 'ojPictoChart', 'ojButtonset'],
+    'ul': ['ojMenu', 'ojListView'],
+    'button': ['ojButton']
 };
 // Custom components
 let customComponents = {
-    'ojDialog':{
-        template: `<div data-bind="ojComponent: ojcomponent, attr: {id:id, title:title}">\
-        <!-- ko with:$parent -->\
-        <!-- ko template: { nodes: $componentTemplateNodes } --><!-- /ko -->\
-        <!-- /ko -->\
-        </div>`
-    },
-    'ojButton':{
-        template: '<button data-bind="click: click, ojComponent: ojcomponent"></button>'
-    },
     'ojNavigationList': {
-        template: '<div role="navigation" data-bind="ojComponent: ojcomponent"></div>',
+        template: 'div',
         defaults: {
             navigationLevel: 'application',
             edge: 'start',
@@ -34,7 +25,7 @@ let customComponents = {
         }
     },
     'ojChart':{
-        template: utils.ojHtml('div'),
+        template: 'div',
         defaults:{
             type: 'line',
             series: [],

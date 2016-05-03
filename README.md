@@ -121,7 +121,49 @@ The library exports 4 methods:
 - Object **components**:  Contains all basic configuration for the components.
 - Function **register(ko)**:  You pass a knockout context and register inside that, the components inside the previous field.
 
-We have internally a function that returns the class for every component in the [knockout way](http://knockoutjs.com/documentation/component-overview.html).
+We have internally a function that returns the class for every component, and then register it in the [knockout way](http://knockoutjs.com/documentation/component-overview.html).
+
+## Usage
+
+All components follow the same structure and we wrap it in the same way, all params you pass to the component are extended to the ojComponent. There are from now one exception:
+
+- ojDialog: In addition to all the params for the ojComponent you need to send an id and title, for the modal. As you can see on the example:
+
+  ```html
+  <oj-dialog params="
+      rootAttributes: { style: 'width: 620px;height: 350px;'},
+      title: 'Project configuration', 
+      id: 'config'">
+      <div class="oj-dialog-body">
+        <!-- ... -->
+      </div>
+      <div class="oj-dialog-footer">
+          <oj-button params="click: closeModal, label: 'Close'"></oj-button>
+      </div>
+  </oj-dialog>
+  ```
+
+
+
+In addittion, as you can see on the dialog example you can pass childs, we bonded the actual context down to allow you complex nesting of components. Example:
+
+```html
+<oj-toolbar>
+	<oj-dialog params="
+		rootAttributes: { style: 'width: 620px;height: 350px;'},
+        title: 'Project configuration', 
+        id: 'config'">
+		<!-- ... -->
+      	<div class="oj-flex-item oj-sm-6">
+          <oj-input params="value: apiUrl">
+          </oj-input>
+     	</div>
+      	<!-- ... -->
+	</oj-dialog>
+</oj-toolbar>
+```
+
+
 
 ## Examples
 

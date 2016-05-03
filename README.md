@@ -64,12 +64,6 @@ The main benefits are that your jet components are compact (less code), these in
 
 
 
-## Issues
-
-We try to develop a library as much simple we can, and we create a common system to wrap the jet components. With some components, sometimes instead of add the tags id, css, style to the root of the component params, you need to put in the rootAttributes fields (for example in the oj-dialog). In the future the idea is to have specific templates for every component.
-
-
-
 ## Getting started
 Install the module with: `bower install jet-komponents`
 
@@ -163,6 +157,12 @@ In addittion, you can pass childs, we binded the actual context down to allow yo
     </oj-dialog>
 </oj-toolbar>
 ```
+
+
+
+## Issues
+
+We try to develop a library as much simple we can, and we create a common system to wrap the jet components. With some components, sometimes instead of add the tags id, css, style to the root of the component params, you need to put in the rootAttributes fields (for example in the oj-dialog). In the future the idea is to have specific templates for every component.
 
 
 

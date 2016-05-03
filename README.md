@@ -23,7 +23,7 @@ The jet components right now uses too much verbose way to define, for example a 
 </button>
 ```
 
-The ```ojComponent: {/*…*/}``` part is fixed for all components in jet and we are trying to create a more better way to do that:
+The ```ojComponent: {/*…*/}``` part is fixed for all components in jet and we are trying to create a more cleaner way to do that:
 
 ```html
 <oj-button params="
@@ -128,7 +128,7 @@ As you can check, right now we only eliminate ```ojComponent: { component: NAME,
 
 ## Methods
 
-The library exports 4 methods:
+The library exports 2 methods:
 
 - Object **components**:  Contains all basic configuration for the components.
 - Function **register(ko)**:  You pass a knockout context and register inside that, the components inside the previous field.
@@ -260,7 +260,10 @@ We try to develop a library as much simple we can, and we create a common system
 
 # Release History
 
+Feel free to submit a suggestion or a bug.
+
 ## (0.5.0)
+
 - First release we will update soon, stay tuned!
 - Components:
   - ojInputText
@@ -289,7 +292,7 @@ We try to develop a library as much simple we can, and we create a common system
   - ojNavigationList
   - ojChart
 
-
+  ​
 
 
 ## License

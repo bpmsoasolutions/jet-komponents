@@ -1,9 +1,9 @@
 {
     "compilerOptions": {
-        "module": "amd",
+        "module": "es2015",
         "target": "es2015",
         "noImplicitAny": false,
-        "sourceMap": false,
+        "sourceMap": true,
         "allowJs": true
     },
     "exclude": [

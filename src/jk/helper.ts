@@ -32,6 +32,9 @@ export const koClass = function (name, ojDefaults) {
     var defaultFields = ['click', 'id', 'style', 'css', 'title'];
 
     return class Class {
+        public params
+        public ojcomponent
+
         constructor(params){
             this.params = params;
             this.ojcomponent = Object.assign({},

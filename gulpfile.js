@@ -13,6 +13,11 @@ var fs = require('fs'),
     uglify = require('gulp-uglify'),
     header = require('gulp-header'),
 
+    //Ts
+    sourcemaps = require('gulp-sourcemaps'),
+    ts = require('gulp-typescript'),
+    tsProject = ts.createProject('./tsconfig.json'),
+
     packageJson = require('./package.json');
 
 var local_project = '/Users/dbr/htdocs/bss/oracle-jet/Frontend/js/libs/jet-komponents/dist';
@@ -34,34 +39,6 @@ var banner = ["/**",
     " */",
     ""].join("\n");
 
-var transpilationConfig = {
-        root: 'src',
-        babelConfig: {
-            modules: 'amd',
-            sourceMaps: 'inline'
-        },
-        skip:[]
-    },
-    babelIgnoreRegexes = transpilationConfig.skip.map(function(item) {
-        return babelCore.util.regexify(item);
-    });
-
-function babelTranspile(pathname, callback) {
-    if (babelIgnoreRegexes.some(function (re) { return re.test(pathname); })) return callback();
-    var src  = path.join(transpilationConfig.root, pathname);
-    var opts = objectAssign({ sourceFileName: '/source/' + pathname }, transpilationConfig.babelConfig);
-    babelCore.transformFile(src, opts, callback);
-}
-
-function requireTask(name, file) {
-    return gulp.task(name, ['babel'], function(cb) {
-        var config = objectAssign({}, require(file), { baseUrl: 'temp' });
-        rjs(config)
-            .pipe(gulp.dest('./dist/'));
-        cb()
-    });
-}
-
 gulp.task('clean:dist', function(cb) {
     del('./dist/**/*')
         .then(function () {
@@ -75,23 +52,14 @@ gulp.task('clean:temp', function(cb) {
             cb();
         });
 });
-
 gulp.task('babel', ['clean'], function() {
-    return gulp.src('./src/**')
-        .pipe(es.map(function(data, cb) {
-            if (!data.isNull()) {
-                babelTranspile(data.relative, function(err, res) {
-                    if (res) {
-                        data.contents = new Buffer(res.code);
-                    }
-                    cb(err, data);
-                });
-            } else {
-                cb(null, data);
-            }
-        }))
-        .pipe(gulp.dest('./temp'));
-});
+     return gulp.src('./src/**')
+        .pipe(sourcemaps.init())
+        .pipe(ts(tsProject))
+        .pipe(babel())
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest('./temp'))
+})
 
 gulp.task('deploy-locally', ['rjs'], function () {
     del.sync(local_project + '/*', {force:true});

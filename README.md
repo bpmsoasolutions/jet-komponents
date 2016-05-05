@@ -23,7 +23,7 @@ The jet components right now uses too much verbose way to define, for example a 
 </button>
 ```
 
-The ```ojComponent: {/*…*/}``` part is fixed for all components in jet and we are trying to create a more cleaner way to do that:
+The ```ojComponent: {/*…*/}``` part is fixed for all components in jet and we are trying to create a cleaner way to do that:
 
 ```html
 <oj-button params="

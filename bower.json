@@ -5,7 +5,7 @@
   "main": "dist/jet-komponents.min.js",
   "license": "MIT",
   "authors": [
-    "Daniel Biedma Ramos <daniel.biedma@bpmsoasolutions.com>"
+     "BSS <info@bpmsoasolutions.com>",
   ],
   "keywords": [
     "oracle",

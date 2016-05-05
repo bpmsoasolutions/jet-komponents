@@ -1,17 +1,7 @@
 # jet-komponents
-Oracle-jet components used in knockout way. We try to wrap jet components to register as custom elements.
+The current implementation of Oracle JET components require some verbose declarations that can clutter the html of your application. If you have a really big application created with Jet, you might feel a little bit lost when you read the different pages.
 
-
-
-## What is
-
-This is an utility to create the jet components in a modern philosophy that knockout > 3.2 have out of the box. Is the web components inspired idea.
-
-
-
-## Why
-
-The jet components right now uses too much verbose way to define, for example a button have to be declared like:
+Let us see an example for the declaration of a button component:
 
 ```html
 <button data-bind="
@@ -23,7 +13,7 @@ The jet components right now uses too much verbose way to define, for example a 
 </button>
 ```
 
-The ```ojComponent: {/*…*/}``` part is fixed for all components in jet and we are trying to create a cleaner way to do that:
+Now, the ```ojComponent: {/*…*/}``` statement is always the same, regardless of which component we are referring to. Wouldn't it be easier to just declare it as follows?
 
 ```html
 <oj-button params="
@@ -32,13 +22,11 @@ The ```ojComponent: {/*…*/}``` part is fixed for all components in jet and we 
 </oj-button>
 ```
 
-Our solution are trying to simplify the use of that components.
+As you can see from the example above, the code looks cleaner and more readable: a quick scan through the HTML would already tell you which Jet components you are using. With this idea in mind, we decided to do something about it.
 
+### What is jet-komponents?
 
-
-## What is for
-
-The actual components make a little bit dirty the html of your application, if you have a really big application in jet you feel a little bit lost when you read the html. The idea comes from react, in react the button will be defined like this:
+A utility to create JET components following the way that Knockout (> 3.2) provides out of the box, inspired in the concept of web components and their use in React - see example below:
 
 ```html
 <oj-button
@@ -47,7 +35,7 @@ The actual components make a little bit dirty the html of your application, if y
 </oj-button>
 ```
 
-Saving the distancies, because react use the jsx syntax, that is really comfortable to write components, we want to arrive to a something similar.
+React uses JSX which makes it really easy (and readable) to write components, as you can see from the example above. We wanted to have a similar declaration - within the possibilities - which is the reason we created our library:
 
 ```html
 <oj-button params="
@@ -56,18 +44,17 @@ Saving the distancies, because react use the jsx syntax, that is really comforta
 </oj-button>
 ```
 
-
-
-## Benefits
-
-The main benefits are that your jet components are compact (less code), these increase the legibility of the code.
+By using the utility components declared in a more compact fashion and with less code,increasing the code readability.
 
 
 
 ## Getting started
-Install the module with: `bower install jet-komponents`
 
-Add it to your requireJs config:
+First you need to get the utility, so install the jet-komponents module with:
+
+​     `bower install jet-komponents`
+
+Then, add it to your requireJs config as follows:
 
 ```javascript
 /* ... */
@@ -80,7 +67,7 @@ requirejs.config({
 /* ... */
 ```
 
-Then to register the components, go to your entry point and run our register function.
+Afterwards, go to your entry point and execute the register function as illustrated below:
 
 ```javascript
 /* ... */
@@ -90,7 +77,7 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'jet-komponents'],
 /* ... */
 ```
 
-Now you can use the components in this way.
+That's it! Now you can start declaring components in this way:
 
 ```html
 <oj-button params="
@@ -113,16 +100,18 @@ Instead of that:
 
 
 
-## Documentation
-This first version of the library borns to cover our needs, to have a better experience with jet. Right now is a wrapper for at least this components (more components will be added):
+## Implementation details
+This initial version of the utility covers the following components (more to come later):
 
 ```javascript
 ['ojInputText', 'ojInputPassword', 'ojInputNumber', 'ojInputDateTime',  'ojSlider', 'ojCombobox', 'ojInputSearch', 'ojSwitch', 'ojTextArea', 'ojSelect', 'ojCheckboxset', 'ojRadioSet','ojToolbar', 'ojLedGauge', 'ojDiagram','ojLegend', 'ojNBox', 'ojPictoChart', 'ojButtonset','ojMenu', 'ojListView', 'ojDialog', 'ojButton', 'ojNavigationList', 'ojChart']
 ```
 
-As you can check, right now we only eliminate ```ojComponent: { component: NAME, /* … */ }``` dependency, so every parameter you pass will be injected inside that, the only field that are not infected are the click field. We are working to provide a better way.
 
-**Remember that you must import the component you want in your requireJs, this is only a wrapper over Jet.**
+
+Note that every parameter passed to the component will be injected inside the ```ojComponent: { component: NAME, /* … */ }``` declaration, with the exception of the ```click``` attribute which is left untouched. Future versions will try to improve this.
+
+**Remember to import the component you want in your requireJs, as this is only a wrapper over Jet.**
 
 
 
@@ -141,7 +130,7 @@ We have internally a function that returns the class for every component, and th
 
 All components follow the same structure and we wrap it in the same way, all params you pass to the component are extended to the ojComponent. Also the library recognizes the fields id, css, style and title, and it are passed in the root element.
 
-In addittion, you can pass childs, we binded the actual context down to allow you complex nesting of components. Example:
+Components can be nested as well just by adding them as children of parent component. Example:
 
 ```html
 <oj-toolbar>
@@ -162,11 +151,7 @@ In addittion, you can pass childs, we binded the actual context down to allow yo
 
 ## Issues
 
-We try to develop a library as much simple we can, and we create a common system to wrap the jet components. With some components, sometimes instead of add the tags id, css, style to the root of the component params, you need to put in the rootAttributes fields (for example in the oj-dialog). In the future the idea is to have specific templates for every component.
-
-
-
-## Examples
+We have tried to make the usage as simple as we can and to create a homogeneous syntax to wrap jet components. There are some components however in which this is is not possible, such as **oj-dialog**. In these, you have to specify *tag ids*, *css*, *style* in the `rootAttributes` instead of the component parameters. In future releases the idea is to have specific templates for every component. See the list of examples below:
 
 **Select** (ojs/ojselect)
 
@@ -258,11 +243,13 @@ We try to develop a library as much simple we can, and we create a common system
 </oj-input-text>
 ```
 
-# Release History
 
-Feel free to submit a suggestion or a bug.
 
-## (0.5.0)
+## Release History
+
+Feel free to submit suggestions or bug reports.
+
+### (0.5.0)
 
 - First release we will update soon, stay tuned!
 - Components:

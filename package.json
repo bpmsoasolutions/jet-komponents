@@ -4,7 +4,7 @@
   "description": "Jet components used in knockout way",
   "main": "dist/jet-komponents.min.js",
   "scripts": {},
-  "author": "Daniel Biedma Ramos <daniel.biedma@bpmsoasolutions.com>",
+  "author": "BSS <info@bpmsoasolutions.com>",
   "license": "MIT",
   "licenseUrl": "http://github.com/bpmsoasolutions/jet-komponents/LICENSE",
   "homepage": "http://github.com/bpmsoasolutions/jet-komponents",

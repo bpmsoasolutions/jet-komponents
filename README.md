@@ -98,6 +98,30 @@ Instead of that:
 </button>
 ```
 
+#### Additional notes for the jet generator
+If you use the jet generator, please add these lines to ```scripts/grunt/config/bowercopy.js```, then run ```grunt build``` to copy jet-komponents to the libs folder.
+
+```javascript
+module.exports = function(grunt)
+{
+  return {
+  
+    /* ... */
+    thirdParty:
+    {
+    
+      /* ... */
+      files:
+      {
+      
+        /* ... */
+        "jet-komponents/jet-komponents.js": "jet-komponents/dist/jet-komponents.js",
+        "jet-komponents/jet-komponents.min.js": "jet-komponents/dist/jet-komponents.min.js"
+      }
+    }
+  };
+};
+```
 
 
 ## Implementation details
@@ -242,7 +266,6 @@ We have tried to make the usage as simple as we can and to create a homogeneous 
     id: 'search-word'">
 </oj-input-text>
 ```
-
 
 
 ## Release History

@@ -16,7 +16,7 @@ module.exports = {
         'requirejs': '../node_modules/requirejs/require'
     },
     out: 'jet-komponents.js',
-    include: ['requirejs','jet-komponents'],
+    include: ['requirejs', 'jet-komponents'],
     preserveLicenseComments: false,
     generateSourceMaps: false
 };

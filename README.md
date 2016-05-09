@@ -272,7 +272,7 @@ We have tried to make the usage as simple as we can and to create a homogeneous 
 
 Feel free to submit suggestions or bug reports.
 
-### (0.5.0)
+### (0.5.0) [Announcement!](http://www.bpmsoasolutions.com/es/blog/item/40-announcing-jet-komponents-0-5-0.html)
 
 - First release we will update soon, stay tuned!
 - Components:

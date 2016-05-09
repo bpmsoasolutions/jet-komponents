@@ -16,10 +16,10 @@ Let us see an example for the declaration of a button component:
 Now, the ```ojComponent: {/*…*/}``` statement is always the same, regardless of which component we are referring to. Wouldn't it be easier to just declare it as follows?
 
 ```html
-<oj-button params="
+<ojk-button params="
     click: pauseResumeInterval,
     label: 'Application Navigation'">
-</oj-button>
+</ojk-button>
 ```
 
 As you can see from the example above, the code looks cleaner and more readable: a quick scan through the HTML would already tell you which Jet components you are using. With this idea in mind, we decided to do something about it.
@@ -29,19 +29,19 @@ As you can see from the example above, the code looks cleaner and more readable:
 A utility to create JET components following the way that Knockout (> 3.2) provides out of the box, inspired in the concept of web components and their use in React - see example below:
 
 ```html
-<oj-button
+<ojk-button
     click="pauseResumeInterval"
     label="Application Navigation">
-</oj-button>
+</ojk-button>
 ```
 
 React uses JSX which makes it really easy (and readable) to write components, as you can see from the example above. We wanted to have a similar declaration - within the possibilities - which is the reason we created our library:
 
 ```html
-<oj-button params="
+<ojk-button params="
     click: pauseResumeInterval,
     label: 'Application Navigation'">
-</oj-button>
+</ojk-button>
 ```
 
 By using the utility components declared in a more compact fashion and with less code,increasing the code readability.
@@ -80,10 +80,10 @@ require(['ojs/ojcore', 'knockout', 'jquery', 'jet-komponents'],
 That's it! Now you can start declaring components in this way:
 
 ```html
-<oj-button params="
+<ojk-button params="
     click: pauseResumeInterval,
     label: 'Application Navigation'">
-</oj-button>
+</ojk-button>
 ```
 
 Instead of that:
@@ -157,18 +157,18 @@ All components follow the same structure and we wrap it in the same way, all par
 Components can be nested as well just by adding them as children of parent component. Example:
 
 ```html
-<oj-toolbar>
-    <oj-dialog params="
+<ojk-toolbar>
+    <ojk-dialog params="
         rootAttributes: { style: 'width: 620px;height: 350px;'},
         title: 'Project configuration',
         id: 'config'">
         <!-- ... -->
           <div class="oj-flex-item oj-sm-6">
-          <oj-input params="value: apiUrl"></oj-input>
+          <ojk-input params="value: apiUrl"></ojk-input>
          </div>
           <!-- ... -->
-    </oj-dialog>
-</oj-toolbar>
+    </ojk-dialog>
+</ojk-toolbar>
 ```
 
 
@@ -180,7 +180,7 @@ We have tried to make the usage as simple as we can and to create a homogeneous 
 **Select** (ojs/ojselect)
 
 ```html
-<oj-select params="
+<ojk-select params="
     multiple: true,
     value: selectedFields,
     options: listOfFields,
@@ -188,37 +188,37 @@ We have tried to make the usage as simple as we can and to create a homogeneous 
         id: 'multiselect',
         style:'max-width:100%'
     }">
-</oj-select>
+</ojk-select>
 ```
 
 **Button** (ojs/ojbutton)
 
 ```html
-<oj-button params="
+<ojk-button params="
     click: addGraphs,
     label:'Add',
     rootAttributes: {
         style: 'float:right'
     }">
-</oj-button>
+</ojk-button>
 ```
 
 **Chart** (ojs/ojchart)
 
 ```html
-<oj-chart params="
+<ojk-chart params="
     series: widget.data,
     groups: $parent.lineGroups,
     rootAttributes:{
         style: 'width:100%;height:350px;'
     }">
-</oj-chart>
+</ojk-chart>
 ```
 
 **Navigation List** (ojs/ojnavigationlist)
 
 ```html
-<oj-navigation-list params="
+<ojk-navigation-list params="
     optionChange: $parent.navChange,
     item: {template: 'navTemplate'},
     data: $parent.navDataSource,
@@ -227,26 +227,26 @@ We have tried to make the usage as simple as we can and to create a homogeneous 
     rootAttributes:{
         class:'oj-web-applayout-navbar oj-sm-only-hide oj-web-applayout-max-width oj-navigationlist-item-dividers oj-md-condense oj-md-justify-content-center oj-lg-justify-content-flex-end'
     }">
-</oj-navigation-list>
+</ojk-navigation-list>
 ```
 
 **Dialog** (ojs/ojdialog)
 
 ```html
-<oj-dialog params="rootAttributes: { style: 'width: 620px;height: 350px;'}, title: 'Project configuration', id: 'config'">
+<ojk-dialog params="rootAttributes: { style: 'width: 620px;height: 350px;'}, title: 'Project configuration', id: 'config'">
     <div class="oj-dialog-body">
       <!-- ... -->
     </div>
     <div class="oj-dialog-footer">
-        <oj-button params="click: closeModal, label: 'Close'"></oj-button>
+        <ojk-button params="click: closeModal, label: 'Close'"></ojk-button>
     </div>
-</oj-dialog>
+</ojk-dialog>
 ```
 
 **List view** (ojs/ojlistview)
 
 ```html
-<oj-list-view params="
+<ojk-list-view params="
     selectionMode: 'single',
     data: fieldsTable,
     selection: selectionField,
@@ -254,17 +254,17 @@ We have tried to make the usage as simple as we can and to create a homogeneous 
     rootAttributes: {
         id: 'listview'
     }">
-</oj-list-view>
+</ojk-list-view>
 ```
 
 **Input** (ojs/ojinput)
 
 ```html
-<oj-input-text params="
+<ojk-input-text params="
     value: searchValue,
     style: 'max-width:25em',
     id: 'search-word'">
-</oj-input-text>
+</ojk-input-text>
 ```
 
 
@@ -272,8 +272,9 @@ We have tried to make the usage as simple as we can and to create a homogeneous 
 
 Feel free to submit suggestions or bug reports.
 
-### (0.5.1) [Announcement!](http://www.bpmsoasolutions.com/es/blog/item/40-announcing-jet-komponents-0-5-0.html)
+### (0.5.2) [Announcement!](http://www.bpmsoasolutions.com/es/blog/item/40-announcing-jet-komponents-0-5-0.html)
 
+- Now the prefixes by default are "ojk-" (Introduced in v0.5.2)
 - Compatible now with all module systems (Introduced in v0.5.1)
 - First release we will update soon, stay tuned!
 - Components:

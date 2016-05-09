@@ -1,6 +1,6 @@
 {
   "name": "jet-komponents",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Jet components used in knockout way",
   "main": "dist/jet-komponents.min.js",
   "license": "MIT",

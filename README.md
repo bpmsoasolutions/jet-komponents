@@ -105,15 +105,15 @@ If you use the jet generator, please add these lines to ```scripts/grunt/config/
 module.exports = function(grunt)
 {
   return {
-  
+
     /* ... */
     thirdParty:
     {
-    
+
       /* ... */
       files:
       {
-      
+
         /* ... */
         "jet-komponents/jet-komponents.js": "jet-komponents/dist/jet-komponents.js",
         "jet-komponents/jet-komponents.min.js": "jet-komponents/dist/jet-komponents.min.js"
@@ -272,8 +272,9 @@ We have tried to make the usage as simple as we can and to create a homogeneous 
 
 Feel free to submit suggestions or bug reports.
 
-### (0.5.0) [Announcement!](http://www.bpmsoasolutions.com/es/blog/item/40-announcing-jet-komponents-0-5-0.html)
+### (0.5.1) [Announcement!](http://www.bpmsoasolutions.com/es/blog/item/40-announcing-jet-komponents-0-5-0.html)
 
+- Compatible now with all module systems (Introduced in v0.5.1)
 - First release we will update soon, stay tuned!
 - Components:
   - ojInputText

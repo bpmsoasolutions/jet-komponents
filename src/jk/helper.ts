@@ -18,7 +18,7 @@ export const register = function (ko) {
             }, components[key]);
 
         ko.components.register(
-            key,
+            key.replace("oj-", "ojk-"),
             helper(
                 config.component,
                 config.template,

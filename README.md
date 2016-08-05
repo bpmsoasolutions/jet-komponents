@@ -272,40 +272,55 @@ We have tried to make the usage as simple as we can and to create a homogeneous 
 
 Feel free to submit suggestions or bug reports.
 
+### (0.5.3)
+- Added ojTable, ojIndexer, ojDataGrid, ojTree, ojRowExpander, ojPagingControl
+
 ### (0.5.2) [Announcement!](http://www.bpmsoasolutions.com/es/blog/item/40-announcing-jet-komponents-0-5-0.html)
 
 - Now the prefixes by default are "ojk-" (Introduced in v0.5.2)
 - Compatible now with all module systems (Introduced in v0.5.1)
 - First release we will update soon, stay tuned!
-- Components:
-  - ojInputText
-  - ojInputPassword
-  - ojInputNumber
-  - ojInputDateTime
-  - ojSlider
-  - ojCombobox
-  - ojInputSearch
-  - ojSwitch
-  - ojTextArea
-  - ojSelect
-  - ojCheckboxset
-  - ojRadioSet
-  - ojToolbar
-  - ojLedGauge
-  - ojDiagram
-  - ojLegend
-  - ojNBox
-  - ojPictoChart
-  - ojButtonset
-  - ojMenu
-  - ojListView
-  - ojDialog
-  - ojButton
-  - ojNavigationList
-  - ojChart
+- Added the basics components
+
+## Components Included
+
+  - ojInputText         -> `<ojk-input-text></ ... >`
+  - ojInputPassword     -> `<ojk-input-password></ ... >`
+  - ojInputNumber       -> `<ojk-input-number></ ... >`
+  - ojInputDateTime     -> `<ojk-input-date-time></ ... >`
+  - ojSlider            -> `<ojk-slider></ ... >`
+  - ojCombobox          -> `<ojk-combobox></ ... >`
+  - ojInputSearch       -> `<ojk-input-search></ ... >`
+  - ojSwitch            -> `<ojk-switch></ ... >`
+  - ojTextArea          -> `<ojk-text-area></ ... >`
+  - ojSelect            -> `<ojk-select></ ... >`
+  - ojCheckboxset       -> `<ojk-checkbox-set></ ... >`
+  - ojRadioSet          -> `<ojk-radio-set></ ... >`
+  - ojToolbar           -> `<ojk-toolbar></ ... >`
+  - ojLedGauge          -> `<ojk-led-gauge></ ... >`
+  - ojDiagram           -> `<ojk-diagram></ ... >`
+  - ojLegend            -> `<ojk-legend></ ... >`
+  - ojNBox              -> `<ojk-n-box></ ... >`
+  - ojPictoChart        -> `<ojk-picto-chart></ ... >`
+  - ojButtonset         -> `<ojk-buttonset></ ... >`
+  - ojMenu              -> `<ojk-menu></ ... >`
+  - ojListView          -> `<ojk-list-view></ ... >`
+  - ojDialog            -> `<ojk-dialog></ ... >`
+  - ojButton            -> `<ojk-button></ ... >`
+  - ojNavigationList    -> `<ojk-navigation-list></ ... >`
+  - ojChart             -> `<ojk-chart></ ... >`
+  - ojTable             -> `<ojk-table></ ... >`
+  - ojIndexer           -> `<ojk-indexer></ ... >`
+  - ojDataGrid          -> `<ojk-data-grid></ ... >`
+  - ojTree              -> `<ojk-tree></ ... >`
+  - ojRowExpander       -> `<ojk-row-expander></ ... >`
+  - ojPagingControl     -> `<ojk-paging-control></ ... >`
 
   ​
+## Examples
 
+- TODO app (ES6): [https://github.com/bpmsoasolutions/oracle-jet-todo-app](https://github.com/bpmsoasolutions/oracle-jet-todo-app)
+- Base Jet project from official generator with jet-komponents: [https://github.com/bpmsoasolutions/jet-komponents-base-project](https://github.com/bpmsoasolutions/jet-komponents-base-project)
 
 ## License
 

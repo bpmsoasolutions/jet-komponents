@@ -272,8 +272,8 @@ We have tried to make the usage as simple as we can and to create a homogeneous 
 
 Feel free to submit suggestions or bug reports.
 
-### (0.5.3)
-- Added ojTable, ojIndexer, ojDataGrid, ojTree, ojRowExpander, ojPagingControl
+### (0.5.4)
+- Added ojTable, ojIndexer, ojDataGrid, ojTree, ojRowExpander, ojPagingControl, ojTabs
 
 ### (0.5.2) [Announcement!](http://www.bpmsoasolutions.com/es/blog/item/40-announcing-jet-komponents-0-5-0.html)
 
@@ -315,6 +315,7 @@ Feel free to submit suggestions or bug reports.
   - ojTree              -> `<ojk-tree></ ... >`
   - ojRowExpander       -> `<ojk-row-expander></ ... >`
   - ojPagingControl     -> `<ojk-paging-control></ ... >`
+  - ojTabs              -> `<ojk-tabs></ ... >`
 
   ​
 ## Examples

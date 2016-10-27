@@ -272,6 +272,9 @@ We have tried to make the usage as simple as we can and to create a homogeneous 
 
 Feel free to submit suggestions or bug reports.
 
+### (0.5.6)
+- Fixed ojRadioset, now you can pass as a parameter 'aria-labelledby'
+
 ### (0.5.5)
 - Added ojTable, ojIndexer, ojDataGrid, ojTree, ojRowExpander, ojPagingControl, ojTabs
 

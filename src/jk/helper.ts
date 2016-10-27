@@ -1,4 +1,5 @@
 import components from './components';
+import * as utils from './utils';
 
 export const helper = (name, html, defaults) => {
     defaults = (defaults) ? defaults : {};
@@ -29,7 +30,7 @@ export const register = function (ko) {
 };
 
 export const koClass = function (name, ojDefaults) {
-    var defaultFields = ['click', 'id', 'style', 'css', 'title'];
+    var defaultFields = ['click', 'id', 'style', 'css', 'title', 'ariaLabelledby'];
 
     return class Class {
         public params
@@ -53,7 +54,7 @@ export const koClass = function (name, ojDefaults) {
 
 export const ojHtml = (name) => {
 
-    let defaultFields = ['id','title','style', 'css'];
+    let defaultFields = ['id','title','style', 'css', 'ariaLabelledby'];
 
     let child = '';
     if (name !== 'input'){
@@ -68,7 +69,7 @@ export const ojHtml = (name) => {
 
     var attr = '';
     defaultFields.map(function(c, i){
-        attr += `\'${c}\':${c}${ (i < defaultFields.length-1) ? ',' : '' } `;
+        attr += `\'${utils.camelToDash(c)}\':${c}${ (i < defaultFields.length-1) ? ',' : '' } `;
     });
 
     return `<${name} data-bind="${click} attr: {${attr}}, ojComponent: ojcomponent"> ${child} </${name}>`;

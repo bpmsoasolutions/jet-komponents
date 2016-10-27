@@ -19,7 +19,7 @@ var fs = require('fs'),
 
     packageJson = require('./package.json');
 
-var local_project = '/Users/dbr/htdocs/bss/oracle-jet/Frontend/js/libs/jet-komponents/dist';
+var local_project = '/Users/dbr/htdocs/bss/-OracleJet/todo-app-jet-redux/src/bower_modules/jet-komponents/dist';
 
 var banner = ["/**",
     " *    _     _      _                                 _",
@@ -89,6 +89,6 @@ gulp.task('watch', function() {
 
 gulp.task('clean', ['clean:dist', 'clean:temp']);
 gulp.task('default', ['deploy-locally', 'watch']);
-gulp.task('build:deploy', ['clean', 'rjs', 'rjs-min', 'rjs-full', 'deploy-locally']);
+gulp.task('build:deploy', ['clean', 'rjs', 'rjs-min', 'deploy-locally']);
 gulp.task('build:dev', ['rjs']);
 gulp.task('build:full', ['rjs', 'rjs-min']);

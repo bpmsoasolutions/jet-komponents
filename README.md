@@ -272,7 +272,7 @@ We have tried to make the usage as simple as we can and to create a homogeneous 
 
 Feel free to submit suggestions or bug reports.
 
-### (0.5.4)
+### (0.5.5)
 - Added ojTable, ojIndexer, ojDataGrid, ojTree, ojRowExpander, ojPagingControl, ojTabs
 
 ### (0.5.2) [Announcement!](http://www.bpmsoasolutions.com/es/blog/item/40-announcing-jet-komponents-0-5-0.html)
@@ -295,7 +295,7 @@ Feel free to submit suggestions or bug reports.
   - ojTextArea          -> `<ojk-text-area></ ... >`
   - ojSelect            -> `<ojk-select></ ... >`
   - ojCheckboxset       -> `<ojk-checkbox-set></ ... >`
-  - ojRadioSet          -> `<ojk-radio-set></ ... >`
+  - ojRadioset          -> `<ojk-radioset></ ... >`
   - ojToolbar           -> `<ojk-toolbar></ ... >`
   - ojLedGauge          -> `<ojk-led-gauge></ ... >`
   - ojDiagram           -> `<ojk-diagram></ ... >`

@@ -1,6 +1,6 @@
 {
   "name": "jet-komponents",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "description": "Jet components used in knockout way",
   "main": "dist/jet-komponents.min.js",
   "scripts": {},

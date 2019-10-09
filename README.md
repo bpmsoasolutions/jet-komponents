@@ -163,10 +163,10 @@ Components can be nested as well just by adding them as children of parent compo
         title: 'Project configuration',
         id: 'config'">
         <!-- ... -->
-          <div class="oj-flex-item oj-sm-6">
-          <ojk-input params="value: apiUrl"></ojk-input>
-         </div>
-          <!-- ... -->
+            <div class="oj-flex-item oj-sm-6">
+                <ojk-input params="value: apiUrl"></ojk-input>
+            </div>
+        <!-- ... -->
     </ojk-dialog>
 </ojk-toolbar>
 ```
